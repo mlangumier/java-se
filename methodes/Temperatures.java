@@ -6,12 +6,11 @@ import java.util.Scanner;
 
 public class Temperatures {
   public static void main(String[] args) {
-    Locale.setDefault(Locale.US); // Allows to enter decimals with a `dot` instead of a `comma` in the terminal
+    Locale.setDefault(Locale.US); // Allows the user to enter decimals with a `dot` instead of a `comma` in the terminal
 
-    
     System.out.println();
     
-    // double[] weeklyReadings = { 12.5, 14.2, 13.0, 11.8, 15.6, 16.3, 14.9 };
+    //double[] weeklyReadings = { 12.5, 14.2, 13.0, 11.8, 15.6, 16.3, 14.9 };
     double[] weeklyReadings = createReadings();
 
     System.out.println("--- Readings: " + displayReadings(weeklyReadings));
@@ -30,7 +29,9 @@ public class Temperatures {
    */
   public static double[] createReadings() {
     Scanner scanner = new Scanner(System.in);
-    double[] readings = new double[7]; // Need to define the length of primitive type double[] (fixed memory attribution, != List<> with dynamic memory attribution)
+    // Need to define the length of primitive type double[]
+    // (fixed memory attribution, != List<> with dynamic memory attribution)
+    double[] readings = new double[7];
 
     System.out.println("--- Enter your weekly readings: ");
 
@@ -51,7 +52,7 @@ public class Temperatures {
   StringBuilder stringBuilder = new StringBuilder();
 
     for (double reading: readings) {
-      stringBuilder.append(reading + " ");
+      stringBuilder.append(reading).append(" ");
     }
 
     return stringBuilder.toString();
@@ -114,7 +115,6 @@ public class Temperatures {
   /**
    * Gets the days when the temperature was superior to the compared value
    * @param readings List of temperatures
-   * @param tempCheck Temperature to compare the list elements to
    * @return Days when the temperature is superior to the compared value
    */
   public static String getDaysAboveTemp(double[] readings) {
@@ -126,13 +126,12 @@ public class Temperatures {
     tempCheck = scanner.nextDouble();
 
     for(int i = 0; i < readings.length; i++) {
-
-      if(readings[i] > tempCheck) stringBuilder.append((stringBuilder.length() > 0 ? ", " : "") + DayOfWeek.of(i + 1));
+      if(readings[i] > tempCheck) stringBuilder.append(!stringBuilder.isEmpty() ? ", " : "").append(DayOfWeek.of(i + 1));
     }
 
     scanner.close();
 
-    if (stringBuilder.length() > 0) return stringBuilder.toString();
+    if (!stringBuilder.isEmpty()) return stringBuilder.toString();
     else return String.format("(None. Max temp: %s°)", getMaxTemp(readings));
   } 
 
