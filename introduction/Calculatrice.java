@@ -7,9 +7,7 @@ public class Calculatrice {
     int multiplication = multiplication(2, 2);
     int division = division(16, 4);
 
-    System.out.println(
-      String.format("- Calculatrice: +(%s), -(%s), *(%s), /(%s)", addition, soustraction, multiplication, division)
-    );
+    System.out.printf("- Calculatrice: +(%s), -(%s), *(%s), /(%s)%n", addition, soustraction, multiplication, division);
   }
 
   /**

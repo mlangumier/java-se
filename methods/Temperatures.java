@@ -1,4 +1,4 @@
-package methodes;
+package methods;
 
 import java.time.DayOfWeek;
 import java.util.Locale;
