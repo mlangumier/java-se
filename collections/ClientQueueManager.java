@@ -57,8 +57,8 @@ public class ClientQueueManager {
     }
 
     /**
-     *
-     * @param queue
+     * Remove the first client from the queue array
+     * @param queue Array of clients
      */
     public static void removeClientCalledFromQueue(LinkedList<String> queue) {
         queue.removeFirst();

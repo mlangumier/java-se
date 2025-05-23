@@ -69,6 +69,11 @@ public class TaskManager {
         System.out.print("Delete task number: ");
         idTask = scanner.nextInt() - 1;
 
-        tasks.remove(idTask);
+        if(idTask >= 0 && idTask < tasks.size()) {
+            tasks.remove(idTask);
+        } else {
+            System.out.println("Error: wrong task number: " + idTask + 1);
+        }
+
     }
 }
