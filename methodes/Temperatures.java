@@ -6,29 +6,29 @@ import java.util.Scanner;
 
 public class Temperatures {
   public static void main(String[] args) {
-    Locale.setDefault(Locale.US); // Allows the user to enter decimals with a `dot` instead of a `comma` in the terminal
+    Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
 
     System.out.println();
     
     //double[] weeklyReadings = { 12.5, 14.2, 13.0, 11.8, 15.6, 16.3, 14.9 };
-    double[] weeklyReadings = createReadings();
+    double[] weeklyReadings = createReadings(scanner);
 
     System.out.println("--- Readings: " + displayReadings(weeklyReadings));
     System.out.println("- Average temp: " + calcAverageTemp(weeklyReadings));
     // System.out.println("- Highest temp: " + getMaxTemp(weeklyReadings));
     // System.out.println("- Lowest temp: " + getMinTemp(weeklyReadings));
     System.out.println(getMinMaxTemps(weeklyReadings));
-    System.out.println("- Days above temp: " + getDaysAboveTemp(weeklyReadings));
+    System.out.println("- Days above temp: " + getDaysAboveTemp(scanner, weeklyReadings));
     
     System.out.println();
+    scanner.close();
   }
 
   /**
    * Asks the user to enter temperature readings for each week day
    * @return A list of temperature readings
    */
-  public static double[] createReadings() {
-    Scanner scanner = new Scanner(System.in);
+  public static double[] createReadings(Scanner scanner) {
     // Need to define the length of primitive type double[]
     // (fixed memory attribution, != List<> with dynamic memory attribution)
     double[] readings = new double[7];
@@ -40,7 +40,6 @@ public class Temperatures {
       readings[i] = scanner.nextDouble();
     }
 
-    scanner.close();
     return readings;
   }
 
@@ -117,9 +116,8 @@ public class Temperatures {
    * @param readings List of temperatures
    * @return Days when the temperature is superior to the compared value
    */
-  public static String getDaysAboveTemp(double[] readings) {
+  public static String getDaysAboveTemp(Scanner scanner, double[] readings) {
     StringBuilder stringBuilder = new StringBuilder();
-    Scanner scanner = new Scanner(System.in);
     double tempCheck;
 
     System.out.print("- Check days above temperature: ");
@@ -128,8 +126,6 @@ public class Temperatures {
     for(int i = 0; i < readings.length; i++) {
       if(readings[i] > tempCheck) stringBuilder.append(!stringBuilder.isEmpty() ? ", " : "").append(DayOfWeek.of(i + 1));
     }
-
-    scanner.close();
 
     if (!stringBuilder.isEmpty()) return stringBuilder.toString();
     else return String.format("(None. Max temp: %s°)", getMaxTemp(readings));
