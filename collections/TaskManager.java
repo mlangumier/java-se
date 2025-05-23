@@ -3,6 +3,9 @@ package collections;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Task Manager app - Working with ArrayList
+ */
 public class TaskManager {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +19,6 @@ public class TaskManager {
         deleteTask(scanner, tasks);
         showTasks(tasks);
 
-        System.out.println();
         scanner.close();
     }
 
