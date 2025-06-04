@@ -21,6 +21,7 @@ Exercises to learn about different types of lists and their uses.
 
 ## Input/Output
 Learning how to read and write files.
+Todo: clean up code and finish setup.
 
 ## Exceptions
-Understanding and setting up different types of exceptions, and be able to setup custom exceptions.
+Understanding and setting up different types of exceptions, and be able to set up custom exceptions.

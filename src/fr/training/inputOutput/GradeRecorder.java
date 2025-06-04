@@ -1,5 +1,7 @@
 package src.fr.training.inputOutput;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -8,9 +10,11 @@ import java.util.Scanner;
  * Mark recorder app - User input & read/write a file
  */
 public class GradeRecorder {
+    // private static final Path filePath = Paths.get("src/fr/training/inputOutput"); // TODO: Implement this
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        HashMap<String, String> grades = new HashMap<String, String>();
+        HashMap<String, String> grades = new HashMap<>();
 
         System.out.println("\n--- Let's enter your grades ---");
 
