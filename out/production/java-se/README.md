@@ -18,3 +18,10 @@ Exercises to learn about different types of lists and their uses.
 - `LinkedList<>` client queue manager
 - `TreeSet<>` ordered list of unique names
 - `HashMap<,>` phone book example
+
+## Input/Output
+Learning how to read and write files.
+Todo: clean up code and finish setup.
+
+## Exceptions
+Understanding and setting up different types of exceptions, and be able to set up custom exceptions.
