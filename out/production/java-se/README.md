@@ -25,3 +25,6 @@ Todo: clean up code and finish setup.
 
 ## Exceptions
 Understanding and setting up different types of exceptions, and be able to set up custom exceptions.
+
+## Algorithms
+Setup algorithms to optimize methods and use different sorting algorithms to reorder a list of items. 
